@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.narendra.anonymoustwitter.signup"
+    android:id="@+id/coordinatorlayoutregister">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registerbackground">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="178dp"
+        android:text="Register Here!"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:textColor="#ffffff"
+        android:textSize="40dp"
+        android:drawableBottom="@drawable/finalicon"
+        android:paddingBottom="8dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailregister"
+        android:hint="Email address"
+        android:layout_below="@id/usernameregister"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:textColorHint="#8affffff"
+        android:textCursorDrawable="@drawable/cursor"
+        android:inputType="textEmailAddress"
+        android:backgroundTint="#ffffff"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameregister"
+        android:hint="Username"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="4dp"
+        android:textColorHint="#8affffff"
+        android:textCursorDrawable="@drawable/cursor"
+        android:backgroundTint="#ffffff"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordregister"
+        android:layout_below="@id/emailregister"
+        android:hint="Password"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:textColorHint="#8affffff"
+        android:textCursorDrawable="@drawable/cursor"
+        android:backgroundTint="#ffffff"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirmpasswordregister"
+        android:layout_below="@+id/passwordregister"
+        android:hint="Confirm password"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#8affffff"
+        android:textCursorDrawable="@drawable/cursor"
+        android:backgroundTint="#ffffff"
+        android:textColor="#ffffff"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerbutton"
+        android:text="register"
+        android:layout_below="@id/confirmpasswordregister"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/registerbutton"
+        android:elevation="2dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#ffffff"
+        />
+
+</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

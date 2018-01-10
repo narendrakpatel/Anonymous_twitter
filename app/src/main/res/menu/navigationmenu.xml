@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/myposts"
+        android:title="@string/my_posts"
+        android:icon="@drawable/ic_person_black_24dp" />
+
+    <item android:title="@string/tags">
+        <menu>
+            <group android:checkableBehavior="single">
+            <item
+                android:title="@string/Like"
+                android:id="@+id/likeposts"
+                android:icon="@drawable/ic_thumb_up_black_24dp_active"/>
+            <item
+                android:title="@string/Dislike"
+                android:id="@+id/dislikeposts"
+                android:icon="@drawable/ic_thumb_down_black_24dp_active"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/account">
+        <menu>
+            <group android:checkableBehavior="single">
+        <item
+        android:id="@+id/signout"
+        android:title="@string/sign_out"
+        android:icon="@drawable/ic_power_settings_new_black_24dp"/>
+            </group>
+        </menu>
+    </item>
+    </group>
+
+</menu>

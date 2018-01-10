@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "940355849500",
+    "firebase_url": "https://anonymous-twitter-44bf6.firebaseio.com",
+    "project_id": "anonymous-twitter-44bf6",
+    "storage_bucket": "anonymous-twitter-44bf6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940355849500:android:975e38b1dd75cf79",
+        "android_client_info": {
+          "package_name": "com.example.narendra.anonymoustwitter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940355849500-hme4a3puknr9baskrjdq0g48ihv3evvo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.narendra.anonymoustwitter",
+            "certificate_hash": "41646a06047fd8b4f8e1bd31eb13d6466345a5fc"
+          }
+        },
+        {
+          "client_id": "940355849500-ajp1n7fa8jl5gdhnqk4loip1hg1guo47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1xQStBX-BcTCWFNHwOd4HwgxPGUp4uAo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940355849500-ajp1n7fa8jl5gdhnqk4loip1hg1guo47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
