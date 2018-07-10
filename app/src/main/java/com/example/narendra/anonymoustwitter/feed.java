@@ -1,25 +1,16 @@
 package com.example.narendra.anonymoustwitter;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -76,16 +67,9 @@ public class feed extends AppCompatActivity {
                         drawerLayout.closeDrawer(navigationView);
                         //item.setChecked(true);
                         fragmentTransaction =getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.feedcontainer, new MostLikedPosts());
                         fragmentTransaction.commit();
-                        toolbar.setTitle("Most Liked");
-                        break;
-
-                    case R.id.dislikeposts:
-                        drawerLayout.closeDrawer(navigationView);
-                        //item.setChecked(true);
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.commit();
-                        toolbar.setTitle("Most Disliked");
+                        toolbar.setTitle("Liked");
                         break;
 
                     case R.id.signout:
@@ -96,7 +80,7 @@ public class feed extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         FirebaseAuth.getInstance().signOut();
-                                        Intent intent = new Intent(feed.this, MainActivity.class);
+                                        Intent intent = new Intent(feed.this, LoginActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
                                     }
@@ -114,10 +98,4 @@ public class feed extends AppCompatActivity {
         });
 
     }
-
-  /*  @Override
-    public void onPostCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onPostCreate(savedInstanceState, persistentState);
-        actionBarDrawerToggle.syncState();
-    }*/
 }

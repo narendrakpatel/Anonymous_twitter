@@ -47,12 +47,18 @@ public class NewFeedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_feed,container, false);
 
+        //initializing swipe refresh
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
+
+        //intializing recycler view
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerviewnewfeed);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         postdetailsList = new ArrayList<>();
+
+        //initializing databaseReference pointing to node Posts.
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Posts");
         databaseReference.keepSynced(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -88,25 +94,6 @@ public class NewFeedFragment extends Fragment {
                 startActivity(new Intent(getContext(),NewPost.class));
             }
         });
-       /* //LIST
-        postdetailsList = new ArrayList<>();
-
-        //Recycler View
-        recyclerView = new RecyclerView(getContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Posts");
-        databaseReference.keepSynced(true);
-        refresh();
-
-        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
-*/
         return  view;
     }
 

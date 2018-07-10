@@ -14,10 +14,6 @@
                 android:title="@string/Like"
                 android:id="@+id/likeposts"
                 android:icon="@drawable/ic_thumb_up_black_24dp_active"/>
-            <item
-                android:title="@string/Dislike"
-                android:id="@+id/dislikeposts"
-                android:icon="@drawable/ic_thumb_down_black_24dp_active"/>
             </group>
         </menu>
     </item>

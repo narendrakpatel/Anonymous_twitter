@@ -3,9 +3,11 @@ package com.example.narendra.anonymoustwitter;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +33,8 @@ public class MostLikedPosts extends Fragment {
     private RecyclerView recyclerView;
     private List<Postdetails> postdetailsList;
     private DatabaseReference databaseReference;
-    private DatabaseReference databaseReferenceshowposts;
+    private FirebaseAuth mauth;
+    private String userid;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     public MostLikedPosts() {
@@ -49,14 +52,20 @@ public class MostLikedPosts extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewlike);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        databaseReferenceshowposts = FirebaseDatabase.getInstance().getReference().child("Posts");
+        swipeRefreshLayout = view.findViewById(R.id.swiperefreshlike);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Liked");
+        mauth = FirebaseAuth.getInstance();
+        userid = mauth.getCurrentUser().getUid();
 
-        databaseReferenceshowposts.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Likes").child(userid);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    postdetailsList.add(snapshot.getValue(Postdetails.class));
+                }
+                Collections.reverse(postdetailsList);
+                recyclerView.setAdapter(new RecyclerViewFeedAdapter(getContext(), postdetailsList));
             }
 
             @Override
@@ -65,6 +74,15 @@ public class MostLikedPosts extends Fragment {
             }
         });
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.feedcontainer,new NewFeedFragment());
+                fragmentTransaction.commit();
+            }
+        });
+        swipeRefreshLayout.setRefreshing(false);
 
         return view;
     }

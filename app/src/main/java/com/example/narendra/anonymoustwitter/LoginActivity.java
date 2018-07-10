@@ -7,14 +7,9 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText emailfield, passwordfield;
     private Button loginbutton;
@@ -55,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         signuplink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, signup.class));
+                startActivity(new Intent(LoginActivity.this, signup.class));
             }
         });
 
@@ -63,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user){
         if(user!=null){
-            startActivity(new Intent(MainActivity.this, feed.class));
+            startActivity(new Intent(LoginActivity.this, feed.class));
         }
         else{
-            startActivity(new Intent(MainActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
         }
 
     }
@@ -89,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!(email.isEmpty()||password.isEmpty())){
 
-            final ProgressDialog dialog = new ProgressDialog(MainActivity.this);
+            final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
             dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             dialog.setMessage("Logging in...");
             dialog.show();

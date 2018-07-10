@@ -5,11 +5,8 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="account">Account</string>
-    <string name="Like">Most Liked</string>
-    <string name="Dislike">Most Disliked</string>
+    <string name="Like">Liked</string>
     <string name="tags">Categories</string>
     <string name="sampledesc">This is a nice scenery. </string>
 
-    <!-- TODO: Remove or change terrorplaceholderlder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
